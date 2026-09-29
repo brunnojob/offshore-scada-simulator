@@ -1,7 +1,8 @@
 import { createServer } from "node:http"
 import { createServer as createTcpServer } from "node:net"
 import { WebSocketServer } from "ws"
-import { AlarmEngine, SignalInput, SignalNormalizer, SignalSpec } from "./signals.ts"
+import { AlarmEngine, SignalNormalizer } from "./signals.ts"
+import { type SignalInput, type SignalSpec } from "./signals.ts"
 import { MotorController } from "./plc.ts"
 import { ModbusRegisterBank, handleModbusTcpFrame } from "./modbus.ts"
 
