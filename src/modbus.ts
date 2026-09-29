@@ -9,7 +9,11 @@ const STATE_CODES = {
 } as const
 
 export class ModbusRegisterBank {
-  constructor(private readonly motor: MotorController) {}
+  private readonly motor: MotorController
+
+  constructor(motor: MotorController) {
+    this.motor = motor
+  }
 
   read(start: number, quantity: number): number[] {
     if (!Number.isInteger(start) || !Number.isInteger(quantity) || quantity < 1 || quantity > 125 || start < 0 || start + quantity > 16)
