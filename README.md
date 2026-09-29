@@ -1,12 +1,13 @@
 # Offshore SCADA Simulator
 
-A deterministic offshore process model with PLC scan logic, interlocks, alarm latching and Modbus-style registers.
+A TypeScript industrial telemetry and PLC lab with WebSocket signal streaming, engineering-unit normalization, latched alarms, safety interlocks and a Modbus TCP register map.
 
 ## Run
 
 ```bash
-python simulator.py
-python -m unittest
+npm install
+npm test
+npm run dev
 ```
 
-The simulator is isolated from physical equipment. It is intended for software testing and control-logic study.
+WebSocket and Modbus TCP bind to loopback by default. This is a simulator; it must not control live equipment.
