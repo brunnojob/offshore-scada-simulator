@@ -24,13 +24,13 @@ test("Modbus TCP function 3 returns mapped holding registers", () => {
   const plc = new MotorController()
   plc.updateInputs({ emergencyStop: false, guardClosed: true, pressureHealthy: true, overload: false }, 100)
   const bank = new ModbusRegisterBank(plc)
-  const request = Uint8Array.from([0, 7, 0, 0, 0, 6, 1, 3, 0, 0, 0, 2])
+  const request = Uint8Array.from([0, 7, 0, 0, 0, 6, 1, 3, 0, 0, 0, 3])
   const response = handleModbusTcpFrame(request, bank)
   assert.equal(response[0], 0)
   assert.equal(response[1], 7)
   assert.equal(response[7], 3)
   assert.equal(response[9], 0)
-  assert.equal(response[12], 1)
+  assert.equal(response[14], 1)
 })
 
 test("Modbus writes only the command register", () => {
