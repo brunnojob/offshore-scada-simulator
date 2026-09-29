@@ -4,8 +4,8 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "dev": "node --experimental-strip-types src/server.ts",
-    "test": "node --experimental-strip-types --test test/*.test.ts"
+    "dev": "node --experimental-transform-types src/server.ts",
+    "test": "node --experimental-transform-types --test test/*.test.ts"
   },
   "dependencies": {
     "ws": "8.18.3"
