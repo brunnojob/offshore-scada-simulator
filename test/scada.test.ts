@@ -30,7 +30,7 @@ test("Modbus TCP function 3 returns mapped holding registers", () => {
   assert.equal(response[1], 7)
   assert.equal(response[7], 3)
   assert.equal(response[9], 0)
-  assert.equal(response[11], 1)
+  assert.equal(response[12], 1)
 })
 
 test("Modbus writes only the command register", () => {
