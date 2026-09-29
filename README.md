@@ -11,3 +11,4 @@ npm run dev
 ```
 
 WebSocket and Modbus TCP bind to loopback by default. This is a simulator; it must not control live equipment.
+JUST FOR TEST
