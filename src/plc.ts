@@ -22,15 +22,17 @@ export class MotorController {
   private readonly events: PlcEvent[] = []
   private inputs: SafetyInputs = {
     emergencyStop: false,
-    guardClosed: true,
-    pressureHealthy: true,
+    guardClosed: false,
+    pressureHealthy: false,
     overload: false
   }
+  private readonly startDelayMs: number
+  private readonly stopDelayMs: number
 
-  constructor(
-    private readonly startDelayMs = 1_500,
-    private readonly stopDelayMs = 800
-  ) {}
+  constructor(startDelayMs = 1_500, stopDelayMs = 800) {
+    this.startDelayMs = startDelayMs
+    this.stopDelayMs = stopDelayMs
+  }
 
   updateInputs(inputs: SafetyInputs, now = Date.now()): MotorState {
     this.inputs = { ...inputs }
@@ -93,12 +95,6 @@ export class MotorController {
     const prior = this.state
     this.state = next
     this.stateSince = now
-    this.events.push({
-      sequence: this.sequence++,
-      timestamp: now,
-      from: prior,
-      to: next,
-      cause
-    })
+    this.events.push({ sequence: this.sequence++, timestamp: now, from: prior, to: next, cause })
   }
 }
