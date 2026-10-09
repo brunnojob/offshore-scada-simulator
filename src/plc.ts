@@ -19,6 +19,7 @@ export class MotorController {
   state: MotorState = "STOPPED"
   private stateSince = 0
   private sequence = 0
+  private lastNow = -1
   private readonly events: PlcEvent[] = []
   private inputs: SafetyInputs = {
     emergencyStop: false,
@@ -30,11 +31,14 @@ export class MotorController {
   private readonly stopDelayMs: number
 
   constructor(startDelayMs = 1_500, stopDelayMs = 800) {
+    if (![startDelayMs, stopDelayMs].every(value => Number.isSafeInteger(value) && value >= 0))
+      throw new Error("invalid_motor_timing")
     this.startDelayMs = startDelayMs
     this.stopDelayMs = stopDelayMs
   }
 
   updateInputs(inputs: SafetyInputs, now = Date.now()): MotorState {
+    this.checkClock(now)
     this.inputs = { ...inputs }
     if (this.hasTrip())
       this.transition("TRIPPED", "safety_input_trip", now)
@@ -42,6 +46,8 @@ export class MotorController {
   }
 
   command(action: "START" | "STOP" | "RESET", now = Date.now()): MotorState {
+    this.checkClock(now)
+    if (!["START", "STOP", "RESET"].includes(action)) throw new Error("unknown_command")
     if (action === "START") {
       if (this.state !== "STOPPED")
         throw new Error("start_requires_stopped")
@@ -62,6 +68,7 @@ export class MotorController {
   }
 
   scan(now = Date.now()): MotorState {
+    this.checkClock(now)
     if (this.hasTrip()) {
       this.transition("TRIPPED", "safety_input_trip", now)
       return this.state
@@ -83,6 +90,12 @@ export class MotorController {
 
   private canStart(): boolean {
     return !this.hasTrip() && this.inputs.guardClosed && this.inputs.pressureHealthy
+  }
+
+  private checkClock(now: number): void {
+    if (!Number.isSafeInteger(now) || now < 0 || now < this.lastNow)
+      throw new Error("invalid_motor_clock")
+    this.lastNow = now
   }
 
   private hasTrip(): boolean {
