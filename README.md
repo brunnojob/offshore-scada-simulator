@@ -1,14 +1,28 @@
-# Offshore SCADA Simulator
+# Offshore SCADA
 
-A TypeScript industrial telemetry and PLC lab with WebSocket signal streaming, engineering-unit normalization, latched alarms, safety interlocks and a Modbus TCP register map.
+Servidor local com WebSocket, Modbus TCP, normalização de sinais, alarmes com confirmação e histórico agregado por intervalo.
 
-## Run
+## Executar
 
-```bash
-npm install
+Requisitos: Node.js 24 e TypeScript.
+
+```sh
+npm ci
 npm test
 npm run dev
 ```
 
-WebSocket and Modbus TCP bind to loopback by default. This is a simulator; it must not control live equipment.
-JUST FOR TEST
+## Funcionamento
+
+WebSocket: `ws://127.0.0.1:8080/telemetry`. Modbus TCP: `127.0.0.1:1502`. `/history?tag=nome&from=timestamp&to=timestamp&interval=1000` consulta média, extremos e último valor de dados válidos. Histórico em memória com retenção limitada; exporte os resultados relevantes para persistência.
+
+## Persistência de resultados
+
+O arquivo de operações está em [vercel-home-telemetry-api.vercel.app](https://vercel-home-telemetry-api.vercel.app/laboratory.html?project=offshore-scada-simulator). As migrações Supabase estão no [repositório da API](https://github.com/brunnojob/vercel-home-telemetry-api/tree/main/supabase/migrations).
+
+```sh
+python cloud/sync.py enqueue resultado.json --project offshore-scada-simulator
+python cloud/sync.py sync
+```
+
+Defina `BRUNNODEV_ACCESS_TOKEN` com sua sessão. A fila SQLite conserva os relatórios até confirmação do servidor; o mesmo conteúdo não gera registros duplicados. Tokens não são gravados no código.
