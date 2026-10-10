@@ -1,6 +1,6 @@
 $ bash -e -o pipefail -c npm ci
 
-added 5 packages, and audited 6 packages in 2s
+added 5 packages, and audited 6 packages in 977ms
 
 1 high severity vulnerability
 
@@ -14,18 +14,18 @@ $ bash -e -o pipefail -c npm test
 > offshore-scada-simulator@1.0.0 test
 > node --experimental-transform-types --test test/*.test.ts
 
-(node:2377) ExperimentalWarning: Transform Types is an experimental feature and might change at any time
+(node:2351) ExperimentalWarning: Transform Types is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ historian bounds retention and aggregates only good measurements (2.1155ms)
-(node:2383) ExperimentalWarning: Transform Types is an experimental feature and might change at any time
+✔ historian bounds retention and aggregates only good measurements (2.01797ms)
+(node:2352) ExperimentalWarning: Transform Types is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ normalizes engineering units and rejects replayed sequence (1.712829ms)
-✔ motor start requires interlocks and trips immediately (0.564401ms)
-✔ Modbus TCP function 3 returns mapped holding registers (0.517062ms)
-✔ Modbus writes only the command register (0.316709ms)
-(node:2384) ExperimentalWarning: Transform Types is an experimental feature and might change at any time
+✔ normalizes engineering units and rejects replayed sequence (2.249182ms)
+✔ motor start requires interlocks and trips immediately (0.854096ms)
+✔ Modbus TCP function 3 returns mapped holding registers (0.78123ms)
+✔ Modbus writes only the command register (0.517747ms)
+(node:2358) ExperimentalWarning: Transform Types is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
-✔ invalid timing cannot silently keep a starter energized (2.636069ms)
+✔ invalid timing cannot silently keep a starter energized (1.837262ms)
 ℹ tests 6
 ℹ suites 0
 ℹ pass 6
@@ -33,9 +33,9 @@ $ bash -e -o pipefail -c npm test
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 402.33097
+ℹ duration_ms 280.192837
 
 $ node --experimental-transform-types .proof/demo.ts
-(node:2398) ExperimentalWarning: Transform Types is an experimental feature and might change at any time
+(node:2372) ExperimentalWarning: Transform Types is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 {"buckets":[{"start":0,"count":2,"min":3,"max":4,"mean":3.5,"last":4}],"bad_quality_excluded":true,"regressed_timestamp_rejected":true}

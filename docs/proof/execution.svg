@@ -3,24 +3,24 @@
 <title>Recorded program execution</title>
 <g font-family="monospace" font-size="16">
 <text x="24" y="36" fill="#c9d1d9">brunnojob/offshore-scada-simulator</text>
-<text x="24" y="58" fill="#c9d1d9">Executed: 2026-10-10T02:34:57.905842+00:00</text>
-<text x="24" y="80" fill="#c9d1d9">Source: 2b6032837f64</text>
+<text x="24" y="58" fill="#c9d1d9">Executed: 2026-10-10T02:43:01.708273+00:00</text>
+<text x="24" y="80" fill="#c9d1d9">Source: 4bbd3be09828</text>
 <text x="24" y="102" fill="#c9d1d9"></text>
 <text x="24" y="124" fill="#3fb950">PASS npm test</text>
 <text x="24" y="146" fill="#79c0ff">$ bash -e -o pipefail -c npm test</text>
 <text x="24" y="168" fill="#c9d1d9">&gt; offshore-scada-simulator@1.0.0 test</text>
 <text x="24" y="190" fill="#c9d1d9">&gt; node --experimental-transform-types --test test/*.test.ts</text>
-<text x="24" y="212" fill="#c9d1d9">(node:2377) ExperimentalWarning: Transform Types is an experimental feature and might change at any time</text>
+<text x="24" y="212" fill="#c9d1d9">(node:2351) ExperimentalWarning: Transform Types is an experimental feature and might change at any time</text>
 <text x="24" y="234" fill="#c9d1d9">(Use `node --trace-warnings ...` to show where the warning was created)</text>
-<text x="24" y="256" fill="#c9d1d9">✔ historian bounds retention and aggregates only good measurements (2.1155ms)</text>
-<text x="24" y="278" fill="#c9d1d9">(node:2383) ExperimentalWarning: Transform Types is an experimental feature and might change at any time</text>
+<text x="24" y="256" fill="#c9d1d9">✔ historian bounds retention and aggregates only good measurements (2.01797ms)</text>
+<text x="24" y="278" fill="#c9d1d9">(node:2352) ExperimentalWarning: Transform Types is an experimental feature and might change at any time</text>
 <text x="24" y="300" fill="#c9d1d9">(Use `node --trace-warnings ...` to show where the warning was created)</text>
-<text x="24" y="322" fill="#c9d1d9">✔ normalizes engineering units and rejects replayed sequence (1.712829ms)</text>
+<text x="24" y="322" fill="#c9d1d9">✔ normalizes engineering units and rejects replayed sequence (2.249182ms)</text>
 <text x="24" y="344" fill="#c9d1d9">Full output: evidence.json</text>
 <text x="24" y="366" fill="#c9d1d9"></text>
 <text x="24" y="388" fill="#3fb950">PASS Bound historian retention and exclude bad-quality measurements</text>
 <text x="24" y="410" fill="#79c0ff">$ node --experimental-transform-types .proof/demo.ts</text>
-<text x="24" y="432" fill="#c9d1d9">(node:2398) ExperimentalWarning: Transform Types is an experimental feature and might change at any time</text>
+<text x="24" y="432" fill="#c9d1d9">(node:2372) ExperimentalWarning: Transform Types is an experimental feature and might change at any time</text>
 <text x="24" y="454" fill="#c9d1d9">(Use `node --trace-warnings ...` to show where the warning was created)</text>
 <text x="24" y="476" fill="#c9d1d9">{&quot;buckets&quot;:[{&quot;start&quot;:0,&quot;count&quot;:2,&quot;min&quot;:3,&quot;max&quot;:4,&quot;mean&quot;:3.5,&quot;last&quot;:4}],&quot;bad_quality_excluded&quot;:true,&quot;regres</text>
 <text x="24" y="498" fill="#c9d1d9">sed_timestamp_rejected&quot;:true}</text>
