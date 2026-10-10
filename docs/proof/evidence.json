@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "repository": "brunnojob/offshore-scada-simulator",
+  "source_commit": "2b6032837f64c42b2c34cdc8308e36c135cb0a93",
+  "generated_at": "2026-10-10T02:34:57.905842+00:00",
+  "run_url": "https://github.com/brunnojob/offshore-scada-simulator/actions/runs/38017485733",
+  "inputs_sha256": {
+    ".proof/scenarios.json": "870cbea221c05ab9b6071b6ce664680f534d52958fd85aa6f876e6375205ce6e",
+    ".proof/demo.ts": "0ded61191766bd91f82e2f4f29151fadd4785fe31ea52c570e92d2d46f477dbb"
+  },
+  "cases": [
+    {
+      "display": false,
+      "name": "npm ci",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "npm ci"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 2.207,
+      "output": "\nadded 5 packages, and audited 6 packages in 2s\n\n1 high severity vulnerability\n\nTo address all issues, run:\n  npm audit fix --force\n\nRun `npm audit` for details.\n",
+      "output_sha256": "e92b317efc50eb0efe71ec2265d96d6443fdf8d7a26de546ce9ce3c920800b07"
+    },
+    {
+      "display": true,
+      "name": "npm test",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "npm test"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 0.558,
+      "output": "\n> offshore-scada-simulator@1.0.0 test\n> node --experimental-transform-types --test test/*.test.ts\n\n(node:2377) ExperimentalWarning: Transform Types is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n✔ historian bounds retention and aggregates only good measurements (2.1155ms)\n(node:2383) ExperimentalWarning: Transform Types is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n✔ normalizes engineering units and rejects replayed sequence (1.712829ms)\n✔ motor start requires interlocks and trips immediately (0.564401ms)\n✔ Modbus TCP function 3 returns mapped holding registers (0.517062ms)\n✔ Modbus writes only the command register (0.316709ms)\n(node:2384) ExperimentalWarning: Transform Types is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n✔ invalid timing cannot silently keep a starter energized (2.636069ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 402.33097\n",
+      "output_sha256": "ea03e09f57f9d5df0b04fbdce988133967e0384a07f26c60a2d5c51b23735802"
+    },
+    {
+      "display": true,
+      "name": "Bound historian retention and exclude bad-quality measurements",
+      "argv": [
+        "node",
+        "--experimental-transform-types",
+        ".proof/demo.ts"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 0.101,
+      "output": "(node:2398) ExperimentalWarning: Transform Types is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n{\"buckets\":[{\"start\":0,\"count\":2,\"min\":3,\"max\":4,\"mean\":3.5,\"last\":4}],\"bad_quality_excluded\":true,\"regressed_timestamp_rejected\":true}\n",
+      "output_sha256": "44a4d248ec0fe0529b060ff52ad91677b03dcfbb0bc70fd0c3386bb01a456804"
+    }
+  ],
+  "passed": true
+}
