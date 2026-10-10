@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import { Historian } from '../src/historian.ts';
+const history = new Historian(3, 10000);
+for (let i = 1; i <= 4; i++) history.append({tag:'pressure', value:i, timestamp:i*1000, quality:'good'}, 4000);
+history.append({tag:'pressure',value:100,timestamp:5000,quality:'bad'},5000);
+const buckets=history.query('pressure',0,6000,6000);
+assert.equal(buckets[0].count,2);
+assert.equal(buckets[0].mean,3.5);
+assert.throws(()=>history.append({tag:'pressure',value:0,timestamp:4000,quality:'good'},5000), /regressed/);
+console.log(JSON.stringify({buckets, bad_quality_excluded:true, regressed_timestamp_rejected:true}));

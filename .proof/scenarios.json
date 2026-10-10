@@ -1,0 +1,48 @@
+{
+  "repository": "brunnojob/offshore-scada-simulator",
+  "inputs": [
+    ".proof/scenarios.json",
+    ".proof/demo.ts"
+  ],
+  "cases": [
+    {
+      "name": "npm ci",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "npm ci"
+      ],
+      "timeout": 900,
+      "display": false
+    },
+    {
+      "name": "npm test",
+      "argv": [
+        "bash",
+        "-e",
+        "-o",
+        "pipefail",
+        "-c",
+        "npm test"
+      ],
+      "timeout": 900,
+      "display": true
+    },
+    {
+      "name": "Bound historian retention and exclude bad-quality measurements",
+      "argv": [
+        "node",
+        "--experimental-transform-types",
+        ".proof/demo.ts"
+      ],
+      "contains": [
+        "\"mean\":3.5",
+        "\"regressed_timestamp_rejected\":true"
+      ],
+      "timeout": 120
+    }
+  ]
+}
