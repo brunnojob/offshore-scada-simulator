@@ -28,7 +28,7 @@ Original source and documentation are MIT licensed; see [LICENSE](LICENSE). Thir
 
 Motor timing must use nonnegative integer delays. Commands, scans and input updates reject invalid or regressing clocks before changing controller state. Run `npm test`.
 
-Contribution trailer: `Co-authored-by: nyctophile <329826984+ineedfoundmyway@users.noreply.github.com>`.
+Contribution trailer: `Co-authored-by: nyctophile <33561761+ineedfoundmyway@users.noreply.github.com>`.
 
 ## Execution proof
 
