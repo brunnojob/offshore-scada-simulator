@@ -1,5 +1,7 @@
 # Offshore SCADA
 
+[View execution evidence](https://brunnojob.github.io/devstart-lab/proofs/offshore-scada-simulator/)
+
 A local server with WebSocket, Modbus TCP, signal normalization, acknowledged alarms, and history aggregated by time interval.
 
 ## Run
